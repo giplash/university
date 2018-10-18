@@ -4,13 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch-css": "less-watch-compiler less dist main.less",
+    "start": "concurrently \"webpack-dev-server\" \"npm run watch-css\""
   },
   "author": "giplash",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.0.1",
     "jest": "^23.6.0",
     "jquery": "^3.3.1",
-    "webpack": "^4.20.2"
+    "less": "^3.8.1",
+    "less-watch-compiler": "^1.12.1",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "devDependencies": {
+    "html-loader": "^0.5.5",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2"
   }
 }
