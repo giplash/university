@@ -1,0 +1,10 @@
+.item-row_selected {
+  background-color: red;
+}
+.buttons__buy[disabled] {
+  color: rgba(0, 0, 0, 0.5);
+}
+button {
+  font-size: 16px;
+  padding: 10px;
+}
