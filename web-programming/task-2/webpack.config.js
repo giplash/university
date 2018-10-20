@@ -11,16 +11,24 @@ module.exports = {
     port: 9000
   },
   module: {
-    rules: [{
-      test: /\.less$/,
-      use: [{
-        loader: 'style-loader'
-      }, {
-        loader: 'css-loader'
-      }, {
-        loader: 'less-loader'
-      }]
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'less-loader'
+        }]
+      }
+    ]
   },
-  watch: true
 };

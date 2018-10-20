@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development"
+    "start": "webpack-dev-server --mode=development",
+    "build": "webpack --mode production"
   },
   "author": "giplash",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
+    "babel-preset-env": "^1.7.0",
     "concurrently": "^4.0.1",
     "jest": "^23.6.0",
     "jquery": "^3.3.1",
