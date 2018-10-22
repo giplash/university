@@ -1,14 +1,14 @@
 import data from './data';
-import '../less/main.less';
+import './less/main.less';
 import $ from 'jQuery';
-const $root = $('#root');
 
 const state = {
   data,
   screen: 'main',
   sort: 'name',
+  bills: [],
   tableMode: null,
-  selectedItem: null
+  selectedItem: null,
 };
 
 const setState = obj => {
@@ -23,7 +23,7 @@ const setState = obj => {
 };
 
 const render = () => {
-  $root.html('<div class="container" />');
+  $('#root').html('<div class="container" />');
   const { screen } = state;
   switch (screen) {
   case 'main':
@@ -32,6 +32,9 @@ const render = () => {
   case 'table':
     renderButtons();
     renderTable();
+    break;
+  case 'add':
+    renderAddScreen();
     break;
   }
 };
@@ -58,11 +61,16 @@ const renderButtons = () => {
     <div class="buttons">
       <button class="buttons__back">Back</button>
       <button class="buttons__buy" ${selectedItem === null ? 'disabled' : ''}>Buy</button>
+      <button class="buttons__add">Add</button>
+      <button class="buttons__bills">Bills</button>
     </div>
   `);
   $('.buttons__back').click(() => setState({
     screen: 'main',
     selectedItem: null
+  }));
+  $('.buttons__add').click(() => setState({
+    screen: 'add',
   }));
 };
 
@@ -94,4 +102,49 @@ const renderTable = () => {
     });
   });
 };
+
+const renderAddScreen = () => {
+  const { tableMode, data } = state;
+  $('.container').append(`
+    <form class="add-form">
+      <div class="add-form__row">
+        <label for="add-form__name">Name</label>
+        <input id="add-form__name" type="text" />
+      </div>
+      ${tableMode !== 1 ? `<div class="add-form__row">
+        <label for="add-form__quantity">Quantity</label>
+        <input id="add-form__quantity" type="text" />
+      </div>` : '' }
+      <div class="add-form__row">
+        <label for="add-form__price">Price</label>
+        <input id="add-form__price" type="text" />
+      </div>
+      <div class="add-form__row">
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  `);
+  $('.add-form').on('submit', e => {
+    e.preventDefault();
+    const name = $('#add-form__name').val();
+    const price = +$('#add-form__price').val();
+    const quantity = tableMode !== 1 ? $('#add-form__name').val() : generateQuantity();
+    const id = generateId();
+    setState({
+      data: { ...data, [id]: { id, name, price, quantity } },
+      screen: 'table'
+    });
+  });
+};
+
+const generateQuantity = () => Math.round(Math.random() * 200);
+const generateId = () => {
+  let id = 0;
+  const { data } = state;
+  do {
+    id++;
+  } while(data[id]);
+  return id;
+};
+
 render();
