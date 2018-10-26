@@ -28,6 +28,7 @@ public:
     std::string toString();
     std::string result;
     int countMaxElements();
+    void fillFromFile(std::string);
     BinaryTree();
     ~BinaryTree() {};
 };

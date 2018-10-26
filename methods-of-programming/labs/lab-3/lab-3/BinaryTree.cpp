@@ -8,6 +8,7 @@
 
 #include "BinaryTree.h"
 #include <iostream>
+#include <fstream>
 #include <stdexcept>
 #include <string>
 
@@ -129,4 +130,21 @@ std::string BinaryTree::toString() {
         result += "\n";
     }
     return result;
+}
+
+void BinaryTree::fillFromFile(std::string path) {
+    if (path != "") {
+        std::ifstream stream(path);
+        double value;
+        if (stream.is_open()) {
+            while (!stream.eof()) {
+                stream >> value;
+                if (stream.eof()) break;
+                insert(value);
+            }
+            stream.close();
+        } else {
+            throw std::invalid_argument( "received empty path" );
+        }
+    }
 }

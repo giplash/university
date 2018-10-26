@@ -29,6 +29,7 @@
 		5BBAAF752183A20C00460ED6 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		5BBAAF792183A24C00460ED6 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
 		5BBAAF7B2183A27300460ED6 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		5BBAAF7D2183BE3B00460ED6 /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 				5BBAAF752183A20C00460ED6 /* BinaryTree.h */,
 				5BBAAF7B2183A27300460ED6 /* Node.h */,
 				5BBAAF6C21839FE600460ED6 /* main.cpp */,
+				5BBAAF7D2183BE3B00460ED6 /* data.txt */,
 			);
 			path = "lab-3";
 			sourceTree = "<group>";
