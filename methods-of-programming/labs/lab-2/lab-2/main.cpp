@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
     input(b, dimension);
     c = add(a, b);
     cout << "Result:" << endl;
-    output(c);
+    output(c);    
     return 0;
 }
 

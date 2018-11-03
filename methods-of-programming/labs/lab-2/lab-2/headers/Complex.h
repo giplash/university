@@ -13,17 +13,30 @@
 using namespace std;
 
 class Complex {
-    double real;
-    double imag;
-    
+    double* value;
 public:
     double getReal();
     double getImag();
-    
-    friend ostream& operator << (ostream&, Complex&);
-    Complex& operator = (double a) {
-        real = a;
-        imag = 0;
+    void setReal(double);
+    void setImag(double);
+    void add(Complex);
+    void add(double);
+    void subtract(Complex);
+    void subtract(double);
+    void multiply(Complex);
+    void multiply(double);
+    void divide(Complex);
+    void divide(double);
+    //добавить константы
+    //переписать на комплексное число, проверить на совпадение
+    friend ostream& operator << (ostream&, const Complex&);
+    Complex& operator = (Complex number) {
+        if (number.value[0] != value[0]) {
+            value[0] = number.value[0];
+        }
+        if (number.value[1] != value[1]) {
+            value[1] = number.value[1];
+        }
         return *this;
     }
     Complex();
@@ -32,7 +45,6 @@ public:
     
     
 };
-
 
 Complex operator + (Complex&, double);
 Complex operator + (Complex&, Complex&);
