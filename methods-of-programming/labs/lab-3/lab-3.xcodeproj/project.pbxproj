@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B13BB1A218D2FDF0097A9FE /* ExtendedBinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B13BB18218D2FDF0097A9FE /* ExtendedBinaryTree.cpp */; };
 		5BBAAF6D21839FE600460ED6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAAF6C21839FE600460ED6 /* main.cpp */; };
 		5BBAAF7A2183A24C00460ED6 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAAF792183A24C00460ED6 /* BinaryTree.cpp */; };
 /* End PBXBuildFile section */
@@ -24,12 +25,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B13BB18218D2FDF0097A9FE /* ExtendedBinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExtendedBinaryTree.cpp; sourceTree = "<group>"; };
+		5B13BB19218D2FDF0097A9FE /* ExtendedBinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedBinaryTree.h; sourceTree = "<group>"; };
 		5BBAAF6921839FE600460ED6 /* lab-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab-3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBAAF6C21839FE600460ED6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5BBAAF752183A20C00460ED6 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		5BBAAF792183A24C00460ED6 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
 		5BBAAF7B2183A27300460ED6 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		5BBAAF7D2183BE3B00460ED6 /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
+		5BBAAF7E218432B400460ED6 /* test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,9 @@
 				5BBAAF7B2183A27300460ED6 /* Node.h */,
 				5BBAAF6C21839FE600460ED6 /* main.cpp */,
 				5BBAAF7D2183BE3B00460ED6 /* data.txt */,
+				5BBAAF7E218432B400460ED6 /* test.txt */,
+				5B13BB18218D2FDF0097A9FE /* ExtendedBinaryTree.cpp */,
+				5B13BB19218D2FDF0097A9FE /* ExtendedBinaryTree.h */,
 			);
 			path = "lab-3";
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			files = (
 				5BBAAF6D21839FE600460ED6 /* main.cpp in Sources */,
 				5BBAAF7A2183A24C00460ED6 /* BinaryTree.cpp in Sources */,
+				5B13BB1A218D2FDF0097A9FE /* ExtendedBinaryTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

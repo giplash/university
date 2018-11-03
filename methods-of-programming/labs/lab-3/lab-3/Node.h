@@ -14,26 +14,20 @@ public:
     double value;
     Node* left;
     Node* right;
-    Node* parent;
     Node() {
         value = 0;
-        this->parent = nullptr;
         this->right = nullptr;
         this->left = nullptr;
     }
     Node(double value) {
         this->value = value;
-        this->parent = nullptr;
         this->right = nullptr;
         this->left = nullptr;
     }
-    Node(double value, Node* parent) {
-        this->value = value;
-        this->parent = parent;
-        this->right = nullptr;
-        this->left = nullptr;
-    }
-    ~Node() {};
+    ~Node() {
+        delete left;
+        delete right;
+    };
 };
 
 

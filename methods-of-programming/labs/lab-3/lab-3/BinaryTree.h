@@ -12,25 +12,14 @@
 #include "Node.h"
 
 class BinaryTree {
-    void insertRecursive(Node*, double);
-    void hasRecursive(Node*, double, bool&);
-    void depthRecursive(Node*, int, int&);
-    int toArrayRecursive(Node*, double*, int);
+    void insert(Node*, double);
+    void has(Node*, double, bool&);
 public:
     Node* root;
-    double max;
-    int maxAmount;
-    int length;
     void insert(double);
     bool has(double);
-    int depth();
-    double* toArray();
-    std::string toString();
-    std::string result;
-    int countMaxElements();
-    void fillFromFile(std::string);
     BinaryTree();
-    ~BinaryTree() {};
+    ~BinaryTree();
 };
 
 

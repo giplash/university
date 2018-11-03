@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <string>
-#include "BinaryTree.h"
+#include "ExtendedBinaryTree.h"
 using namespace std;
 
 void testTree();
@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 void testTree() {
     cout << "--------------" << endl;
     cout << "test 1" << endl;
-    BinaryTree tree1;
+    ExtendedBinaryTree tree1;
     bool res1 = true;
     if (tree1.root != nullptr)
         res1 = false;
@@ -35,7 +35,7 @@ void testTree() {
     
     cout << "--------------" << endl;
     cout << "test 2" << endl;
-    BinaryTree tree2;
+    ExtendedBinaryTree tree2;
     bool res2 = true;
     tree2.insert(10);
     tree2.insert(9);
@@ -60,7 +60,7 @@ void testTree() {
     
     cout << "--------------" << endl;
     cout << "test 3" << endl;
-    BinaryTree tree3;
+    ExtendedBinaryTree tree3;
     bool res3 = true;
     tree3.insert(10);
     tree3.insert(9);
@@ -103,7 +103,28 @@ void testTree() {
     if (array[6] != 12)
         res3 = false;
     cout << "    " << (res3 ? "passed (ok)" : "not passed") << endl;
+    
     cout << "--------------" << endl;
-    
-    
+    cout << "test 4" << endl;
+    ExtendedBinaryTree tree4;
+    bool res4 = true;
+    tree4.fillFromFile("test.txt");
+    if (tree4.root->value != 5)
+        res4 = false;
+    if (tree4.root->left->value != 4)
+        res4 = false;
+    if (tree4.root->right->value != 7)
+        res4 = false;
+    if (tree4.root->right->right->value != 8)
+        res4 = false;
+    if (tree4.root->left->left->value != 1)
+        res4 = false;
+    if (tree4.root->left->left->right->value != 2)
+        res4 = false;
+    if (tree4.root->right->right->right->value != 10)
+        res4 = false;
+    if (tree4.depth() != 4)
+        res4 = false;
+    cout << "    " << (res4 ? "passed (ok)" : "not passed") << endl;
+    cout << "--------------" << endl;
 }
