@@ -92,7 +92,7 @@ const renderButtons = () => {
 };
 
 const renderTable = () => {
-  const { data, tableMode, selectedItem } = state;
+  const { data, tableMode, selectedItem, sort } = state;
   $('.container').append(
     `<table><tbody>
       <tr>
@@ -103,7 +103,9 @@ const renderTable = () => {
       </tr>
     </tbody></table>`
   );
-  $('tbody').append(Object.values(data).reduce((str, { id, name, price, quantity }) => {
+  const sortedDataArray = utils.sort(data, sort);
+  $('tbody').append(sortedDataArray.reduce((str, { id, name, price, quantity }) => {
+    if (quantity === 0) return str;
     return str + `
       <tr class="${selectedItem === id ? 'item-row_selected' : 'item-row'}" data-id="${id}">
         ${tableMode === 3 ? `<td>${id}</td>` : ''}
@@ -113,6 +115,26 @@ const renderTable = () => {
       </tr>
     `;
   }, ''));
+  $('.main-row__id').click(() => {
+    setState({
+      sort: 'id'
+    });
+  });
+  $('.main-row__name').click(() => {
+    setState({
+      sort: 'name'
+    });
+  });
+  $('.main-row__price').click(() => {
+    setState({
+      sort: 'price'
+    });
+  });
+  $('.main-row__quantity').click(() => {
+    setState({
+      sort: 'quantity'
+    });
+  });
   $('.item-row').click(function() {
     setState({
       selectedItem: +$(this).attr('data-id')
@@ -137,7 +159,8 @@ const renderAddScreen = () => {
         <input id="add-form__price" type="text" />
       </div>
       <div class="add-form__row">
-        <button type="submit">Add</button>
+        <button class="add-form__submit" type="submit">Add</button>
+        <button class="add-form__back" type="button">Back</button>
       </div>
     </form>
   `);
@@ -145,11 +168,24 @@ const renderAddScreen = () => {
     e.preventDefault();
     const name = $('#add-form__name').val();
     const price = +$('#add-form__price').val();
-    const quantity = tableMode !== 1 ? $('#add-form__name').val() : utils.generateQuantity();
+    const quantity = tableMode !== 1 ? +$('#add-form__quantity').val() : utils.generateQuantity();
     const id = utils.generateId(data);
+    const messages = utils.validate(name, price, quantity);
+    if (messages.some(item => item !== null)) {
+      alert(messages
+        .filter(item => item !== null)
+        .join('\n')
+      );
+      return;
+    }
     setState({
       data: { ...data, [id]: { id, name, price, quantity } },
       screen: 'table',
+    });
+  });
+  $('.add-form__back').click(() => {
+    setState({
+      screen: 'table'
     });
   });
 };
