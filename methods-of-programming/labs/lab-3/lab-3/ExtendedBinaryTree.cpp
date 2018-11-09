@@ -7,9 +7,11 @@
 //
 
 #include "ExtendedBinaryTree.h"
+#include "BinaryTree.h"
 #include <iostream>
 #include <string>
 #include <fstream>
+using namespace std;
 
 void ExtendedBinaryTree::depth(Node* node, int currentDepth, int& maxDepth) {
     if (currentDepth > maxDepth) {
@@ -24,11 +26,11 @@ void ExtendedBinaryTree::depth(Node* node, int currentDepth, int& maxDepth) {
 }
 
 int ExtendedBinaryTree::depth() {
-    if (root == nullptr) {
+    if (BinaryTree::root == nullptr) {
         return 0;
     }
     int maxDepth = 1;
-    depth(root, maxDepth, maxDepth);
+    depth(BinaryTree::root, maxDepth, maxDepth);
     return maxDepth;
 }
 
@@ -46,12 +48,12 @@ void ExtendedBinaryTree::countMaxElements(Node* node, double& max, int& amount) 
 }
 
 int ExtendedBinaryTree::countMaxElements() {
-    if (root == nullptr) {
+    if (BinaryTree::root == nullptr) {
         return 0;
     }
     int amount = 0;
     double max = root->value;
-    countMaxElements(root, max, amount);
+    countMaxElements(BinaryTree::root, max, amount);
     return amount;
 }
 
@@ -63,11 +65,11 @@ void ExtendedBinaryTree::getAmount(Node* node, int& amount) {
 }
 
 int ExtendedBinaryTree::getAmount() {
-    if (root == nullptr) {
+    if (BinaryTree::root == nullptr) {
         return 0;
     }
     int amount = 0;
-    getAmount(root, amount);
+    getAmount(BinaryTree::root, amount);
     return amount;
 }
 
@@ -88,7 +90,7 @@ double* ExtendedBinaryTree::toArray() {
     if (length == 0) {
         return res;
     }
-    toArray(root, res, 0);
+    toArray(BinaryTree::root, res, 0);
     return res;
 }
 
@@ -100,7 +102,7 @@ void ExtendedBinaryTree::fillFromFile(std::string path) {
             while (!stream.eof()) {
                 stream >> value;
                 if (stream.eof()) break;
-                insert(value);
+                BinaryTree::insert(value);
             }
             stream.close();
         } else {
@@ -108,3 +110,6 @@ void ExtendedBinaryTree::fillFromFile(std::string path) {
         }
     }
 }
+
+
+

@@ -12,10 +12,12 @@
 #include "Node.h"
 
 class BinaryTree {
-    void insert(Node*, double);
-    void has(Node*, double, bool&);
-public:
+protected:
+    void insert(Node*&, double);
+    bool has(Node*&, double);
+    void destruct(Node*);
     Node* root;
+public:
     void insert(double);
     bool has(double);
     BinaryTree();

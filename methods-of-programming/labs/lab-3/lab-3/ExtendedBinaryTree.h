@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string>
 #include "BinaryTree.h"
+#include "ExtendedBinaryTreeTester.h"
 
 class ExtendedBinaryTree : public BinaryTree {
     void depth(Node*, int, int&);
@@ -24,6 +25,8 @@ public:
     int getAmount();
     double* toArray();
     void fillFromFile(std::string);
+    
+    friend class ExtendedBinaryTreeTester;
 };
 
 #endif /* ExtendedBinaryTree_h */

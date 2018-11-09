@@ -17,49 +17,49 @@ BinaryTree::BinaryTree() {
     root = nullptr;
 }
 
-void BinaryTree::insert(Node* node, double value) {
-    if (value < node->value) {
-        if (node->left != nullptr) {
-            insert(node->left, value);
-        } else {
-            node->left = new Node(value);
-        }
+void BinaryTree::insert(Node*& node, double value) {
+    if (node == nullptr) {
+        node = new Node(value);
+        return;
+    }
+    if (value >= node->value) {
+        insert(node->right, value);
     } else {
-        if (node->right != nullptr) {
-            insert(node->right, value);
-        } else {
-            node->right = new Node(value);
-        }
+        insert(node->left, value);
     }
 }
 
 void BinaryTree::insert(double value) {
-    if (root == nullptr) {
-        root = new Node(value);
-        return;
-    }
     insert(root, value);
 }
 
-void BinaryTree::has(Node* node, double value, bool& res) {
-    if (res == true) return;
-    if (node->value == value) {
-        res = true;
-        return;
+bool BinaryTree::has(Node*& node, double value) {
+    if (node == nullptr) {
+        return false;
     }
-    if (node->left != nullptr) has(node->left, value, res);
-    if (node->right != nullptr) has(node->right, value, res);
+    if (node->value == value) {
+        return true;
+    }
+    if (value >= node->value) {
+        return has(node->right, value);
+    } else {
+        return has(node->left, value);
+    }
 }
 
 bool BinaryTree::has(double value) {
-    if (root == nullptr) {
-        return false;
+    return has(root, value);
+}
+
+void BinaryTree::destruct(Node* node) {
+    if (node == nullptr) {
+        return;
     }
-    bool res = false;
-    has(root, value, res);
-    return res;
+    destruct(node->left);
+    destruct(node->right);
+    delete node;
 }
 
 BinaryTree::~BinaryTree() {
-    delete root;
+    destruct(root);
 }

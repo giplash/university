@@ -25,8 +25,8 @@ public:
         this->left = nullptr;
     }
     ~Node() {
-        delete left;
-        delete right;
+//        delete left;
+//        delete right;
     };
 };
 

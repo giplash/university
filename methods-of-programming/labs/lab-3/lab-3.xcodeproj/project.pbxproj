@@ -10,6 +10,7 @@
 		5B13BB1A218D2FDF0097A9FE /* ExtendedBinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B13BB18218D2FDF0097A9FE /* ExtendedBinaryTree.cpp */; };
 		5BBAAF6D21839FE600460ED6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAAF6C21839FE600460ED6 /* main.cpp */; };
 		5BBAAF7A2183A24C00460ED6 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAAF792183A24C00460ED6 /* BinaryTree.cpp */; };
+		5BF386962196294900590891 /* ExtendedBinaryTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF386942196294900590891 /* ExtendedBinaryTreeTester.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		5BBAAF7B2183A27300460ED6 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		5BBAAF7D2183BE3B00460ED6 /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		5BBAAF7E218432B400460ED6 /* test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
+		5BF386942196294900590891 /* ExtendedBinaryTreeTester.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExtendedBinaryTreeTester.cpp; sourceTree = "<group>"; };
+		5BF386952196294900590891 /* ExtendedBinaryTreeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedBinaryTreeTester.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				5BBAAF7E218432B400460ED6 /* test.txt */,
 				5B13BB18218D2FDF0097A9FE /* ExtendedBinaryTree.cpp */,
 				5B13BB19218D2FDF0097A9FE /* ExtendedBinaryTree.h */,
+				5BF386942196294900590891 /* ExtendedBinaryTreeTester.cpp */,
+				5BF386952196294900590891 /* ExtendedBinaryTreeTester.h */,
 			);
 			path = "lab-3";
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			files = (
 				5BBAAF6D21839FE600460ED6 /* main.cpp in Sources */,
 				5BBAAF7A2183A24C00460ED6 /* BinaryTree.cpp in Sources */,
+				5BF386962196294900590891 /* ExtendedBinaryTreeTester.cpp in Sources */,
 				5B13BB1A218D2FDF0097A9FE /* ExtendedBinaryTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
