@@ -68,44 +68,44 @@ void Complex::divide(double number) {
     setImag(getImag() / number);
 }
 
-Complex operator + (Complex& a, double b){
-    a.add(b);
-    return a;
+Complex Complex::operator + (double b){
+    add(b);
+    return *this;
 }
 
-Complex operator + (Complex& a, Complex& b){
-    a.add(b);
-    return a;
+Complex Complex::operator + (Complex& b){
+    add(b);
+    return *this;
 }
 
-Complex operator - (Complex& a, double b){
-    a.subtract(b);
-    return a;
+Complex Complex::operator - (double b){
+    subtract(b);
+    return *this;
 }
 
-Complex operator - (Complex& a, Complex& b){
-    a.subtract(b);
-    return a;
+Complex Complex::operator - (Complex& b){
+    subtract(b);
+    return *this;
 }
 
-Complex operator * (Complex& a, double b){
-    a.multiply(b);
-    return a;
+Complex Complex::operator * (double b){
+    multiply(b);
+    return *this;
 }
 
-Complex operator * (Complex& a, Complex& b){
-    a.multiply(b);
-    return a;
+Complex Complex::operator * (Complex& b){
+    multiply(b);
+    return *this;
 }
 
-Complex operator / (Complex& a, double b){
-    a.divide(b);
-    return a;
+Complex Complex::operator / (double b){
+    divide(b);
+    return *this;
 }
 
-Complex operator / (Complex& a, Complex& b){
-    a.divide(b);
-    return a;
+Complex Complex::operator / (Complex& b){
+    divide(b);
+    return *this;
 }
 
 
@@ -115,6 +115,19 @@ ostream& operator << (ostream& stream, const Complex& a){
     stream << " - " <<  -a.value[1] << "i" :
     stream << " + " <<  a.value[1] << "i";
     return stream;
+}
+
+Complex& Complex::operator = (Complex number) {
+    if (&(*this) == &number) {
+        return *this;
+    }
+    if (number.value[0] != value[0]) {
+        value[0] = number.value[0];
+    }
+    if (number.value[1] != value[1]) {
+        value[1] = number.value[1];
+    }
+    return *this;
 }
 
 Complex::Complex() {
