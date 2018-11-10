@@ -95,7 +95,7 @@ double* ExtendedBinaryTree::toArray() {
 }
 
 void ExtendedBinaryTree::fillFromFile(std::string path) {
-    if (path != "") {
+    if (path.length() != 0) {
         std::ifstream stream(path);
         double value;
         if (stream.is_open()) {
@@ -105,9 +105,9 @@ void ExtendedBinaryTree::fillFromFile(std::string path) {
                 BinaryTree::insert(value);
             }
             stream.close();
-        } else {
-            throw std::invalid_argument("received wrong path");
         }
+    }  else {
+        throw std::invalid_argument("received wrong path");
     }
 }
 

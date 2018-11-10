@@ -122,4 +122,15 @@ void ExtendedBinaryTreeTester::test() {
         res4 = false;
     cout << "    " << (res4 ? "passed (ok)" : "not passed") << endl;
     cout << "--------------" << endl;
+    
+    cout << "test 5" << endl;
+    ExtendedBinaryTree tree5;
+    bool res5 = false;
+    try {
+        tree5.fillFromFile("");
+    } catch (const std::invalid_argument&) {
+        res5 = true;
+    }
+    cout << "    " << (res5 ? "passed (ok)" : "not passed") << endl;
+    cout << "--------------" << endl;
 }
