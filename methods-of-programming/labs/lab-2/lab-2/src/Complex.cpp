@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdexcept>
 #include <iostream>
 #include "Complex.h"
 
@@ -29,91 +30,101 @@ void Complex::setImag(double value) {
     this->value[1] = value;
 }
 
-void Complex::add(Complex number) {
-    setReal(getReal() + number.getReal());
-    setImag(getImag() + number.getImag());
+Complex Complex::add(Complex number) {
+    Complex res;
+    res.setReal(getReal() + number.getReal());
+    res.setImag(getImag() + number.getImag());
+    return res;
 }
-void Complex::add(double number) {
-    setReal(getReal() + number);
-}
-
-void Complex::subtract(Complex number) {
-    setReal(getReal() - number.getReal());
-    setImag(getImag() - number.getImag());
-}
-void Complex::subtract(double number) {
-    setReal(getReal() - number);
+Complex Complex::add(double number) {
+    Complex res;
+    res.setReal(getReal() + number);
+    res.setImag(getImag());
+    return res;
 }
 
-void Complex::multiply(Complex number) {
-    setReal(getReal() * number.getReal() - getImag() * number.getImag());
-    setImag(getReal() * number.getImag() + getImag() * number.getReal());
+Complex Complex::subtract(Complex number) {
+    Complex res;
+    res.setReal(getReal() - number.getReal());
+    res.setImag(getImag() - number.getImag());
+    return res;
 }
-void Complex::multiply(double number) {
-    setReal(getReal() * number);
-    setImag(getImag() * number);
+Complex Complex::subtract(double number) {
+    Complex res;
+    res.setReal(getReal() - number);
+    res.setImag(getImag());
+    return res;
 }
 
-void Complex::divide(Complex number) {
+Complex Complex::multiply(Complex number) {
+    Complex res;
+    res.setReal(getReal() * number.getReal() - getImag() * number.getImag());
+    res.setImag(getReal() * number.getImag() + getImag() * number.getReal());
+    return res;
+}
+Complex Complex::multiply(double number) {
+    Complex res;
+    res.setReal(getReal() * number);
+    res.setImag(getImag() * number);
+    return res;
+}
+
+Complex Complex::divide(Complex number) {
     Complex c(number.getReal(), -number.getImag());
     Complex numerator;
     numerator = *this * c;
     double denominator = (number * c).getReal();
-    Complex temp;
-    temp = (numerator / denominator);
-    *this = temp;
+    Complex res;
+    res = (numerator / denominator);
+    return res;
 }
-void Complex::divide(double number) {
-    setReal(getReal() / number);
-    setImag(getImag() / number);
+Complex Complex::divide(double number) {
+    if (number == 0) {
+        throw std::invalid_argument( "we can't divide by 0" );
+    }
+    Complex res;
+    res.setReal(getReal() / number);
+    res.setImag(getImag() / number);
+    return res;
 }
 
 Complex Complex::operator + (double b){
-    add(b);
-    return *this;
+    return add(b);
 }
 
 Complex Complex::operator + (Complex& b){
-    add(b);
-    return *this;
+    return add(b);
 }
 
 Complex Complex::operator - (double b){
-    subtract(b);
-    return *this;
+    return subtract(b);
 }
 
 Complex Complex::operator - (Complex& b){
-    subtract(b);
-    return *this;
+    return subtract(b);
 }
 
 Complex Complex::operator * (double b){
-    multiply(b);
-    return *this;
+    return multiply(b);
 }
 
 Complex Complex::operator * (Complex& b){
-    multiply(b);
-    return *this;
+    return multiply(b);
 }
 
 Complex Complex::operator / (double b){
-    divide(b);
-    return *this;
+    return divide(b);
 }
 
 Complex Complex::operator / (Complex& b){
-    divide(b);
-    return *this;
+    return divide(b);
 }
 
 
 ostream& operator << (ostream& stream, const Complex& a){
     stream << a.value[0];
-    a.value[1] < 0.0 ?
-    stream << " - " <<  -a.value[1] << "i" :
-    stream << " + " <<  a.value[1] << "i";
+    // add manipulator
+    stream << showpos << a.value[1] << "i";
     return stream;
 }
 
@@ -121,12 +132,8 @@ Complex& Complex::operator = (Complex number) {
     if (&(*this) == &number) {
         return *this;
     }
-    if (number.value[0] != value[0]) {
-        value[0] = number.value[0];
-    }
-    if (number.value[1] != value[1]) {
-        value[1] = number.value[1];
-    }
+    value[0] = number.value[0];
+    value[1] = number.value[1];
     return *this;
 }
 

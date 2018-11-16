@@ -20,14 +20,15 @@ public:
     void setReal(double);
     void setImag(double);
     
-    void add(Complex);
-    void add(double);
-    void subtract(Complex);
-    void subtract(double);
-    void multiply(Complex);
-    void multiply(double);
-    void divide(Complex);
-    void divide(double);
+    //возвращать Complex
+    Complex add(Complex);
+    Complex add(double);
+    Complex subtract(Complex);
+    Complex subtract(double);
+    Complex multiply(Complex);
+    Complex multiply(double);
+    Complex divide(Complex);
+    Complex divide(double);
     
     friend ostream& operator << (ostream&, const Complex&);
     Complex& operator = (Complex);

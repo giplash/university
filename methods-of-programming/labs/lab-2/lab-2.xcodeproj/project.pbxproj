@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B86FA91215BC00800E585EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B86FA90215BC00800E585EF /* main.cpp */; };
 		5B86FA9B215BC30700E585EF /* Complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B86FA9A215BC30700E585EF /* Complex.cpp */; };
-		5BF386992196301500590891 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF386982196301500590891 /* Vector.cpp */; };
+		5BD12C42219F58ED001196A7 /* IVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD12C41219F58ED001196A7 /* IVector.cpp */; };
+		5BD12C44219F58FD001196A7 /* VectorManipulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD12C43219F58FD001196A7 /* VectorManipulator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +30,10 @@
 		5B86FA90215BC00800E585EF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5B86FA99215BC18100E585EF /* Complex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
 		5B86FA9A215BC30700E585EF /* Complex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Complex.cpp; sourceTree = "<group>"; };
-		5BF386972196300100590891 /* Vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
-		5BF386982196301500590891 /* Vector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		5BD12C3F219F5724001196A7 /* VectorManipulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VectorManipulator.h; sourceTree = "<group>"; };
+		5BD12C40219F589B001196A7 /* IVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVector.h; sourceTree = "<group>"; };
+		5BD12C41219F58ED001196A7 /* IVector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IVector.cpp; sourceTree = "<group>"; };
+		5BD12C43219F58FD001196A7 /* VectorManipulator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VectorManipulator.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				5B86FA99215BC18100E585EF /* Complex.h */,
-				5BF386972196300100590891 /* Vector.h */,
+				5BD12C40219F589B001196A7 /* IVector.h */,
+				5BD12C3F219F5724001196A7 /* VectorManipulator.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -83,7 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				5B86FA9A215BC30700E585EF /* Complex.cpp */,
-				5BF386982196301500590891 /* Vector.cpp */,
+				5BD12C41219F58ED001196A7 /* IVector.cpp */,
+				5BD12C43219F58FD001196A7 /* VectorManipulator.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -145,7 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B86FA9B215BC30700E585EF /* Complex.cpp in Sources */,
-				5BF386992196301500590891 /* Vector.cpp in Sources */,
+				5BD12C44219F58FD001196A7 /* VectorManipulator.cpp in Sources */,
+				5BD12C42219F58ED001196A7 /* IVector.cpp in Sources */,
 				5B86FA91215BC00800E585EF /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
