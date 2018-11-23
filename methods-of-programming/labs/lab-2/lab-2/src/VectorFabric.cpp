@@ -8,12 +8,12 @@
 
 #include <stdio.h>
 #include <vector>
-#include "IVector.h"
+#include "VectorFabric.h"
 #include "Complex.h"
 
 using namespace std;
 
-std::vector<Complex> IVector::create() {
+std::vector<Complex> VectorFabric::create() {
     std::vector<Complex> res;
     int dimension;
     cout << "Input vector's dimension: ";

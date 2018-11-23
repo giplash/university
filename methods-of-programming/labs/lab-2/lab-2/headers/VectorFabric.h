@@ -6,16 +6,16 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#ifndef VectorFiller_h
-#define VectorFiller_h
+#ifndef VectorFabric_h
+#define VectorFabric_h
 
 #include <vector>
 #include "Complex.h"
 
-class IVector {
+class VectorFabric {
 public:
     static std::vector<Complex> create();
 };
 
 
-#endif /* VectorFiller_h */
+#endif /* VectorFabric_h */

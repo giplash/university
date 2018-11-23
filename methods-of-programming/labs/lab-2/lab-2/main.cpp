@@ -10,14 +10,14 @@
 #include <vector>
 #include "Complex.h"
 #include "VectorManipulator.h"
-#include "IVector.h"
+#include "VectorFabric.h"
 
 using namespace std;
 
 
 int main(int argc, const char * argv[]) {
-    vector<Complex> a = IVector::create();
-    vector<Complex> b = IVector::create();
+    vector<Complex> a = VectorFabric::create();
+    vector<Complex> b = VectorFabric::create();
     vector<Complex> c = VectorManipulator::add(a, b);
     cout << "Result: " << endl;
     VectorManipulator::print(c);
