@@ -6,8 +6,8 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#include "BinaryTree.hpp"
-#include "Node.hpp"
+#include "BinaryTree.h"
+#include "Node.h"
 
 template <class T>
 BinaryTree<T>::BinaryTree() {

@@ -6,20 +6,46 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#include "ExtendedBinaryTreeTester.hpp"
 #include <iostream>
-#include "Dog.hpp"
-#include "ExtendedBinaryTree.hpp"
+#include "ExtendedBinaryTreeTester.h"
+#include "ExtendedBinaryTreeTester.h"
+#include "Node.h"
+#include "Node.cpp"
+#include "BinaryTree.h"
+#include "BinaryTree.cpp"
+#include "ExtendedBinaryTree.h"
+#include "ExtendedBinaryTree.cpp"
+#include "Dog.h"
 
 using namespace std;
 
 void ExtendedBinaryTreeTester::test() {
-    Dog dog1("Viktor1");
-    Dog dog2("Viktor12");
-    Dog dog3("Viktor123");
-    ExtendedBinaryTree<Dog> tree1;
-    tree1.insert(dog1);
-    tree1.insert(dog2);
-    tree1.insert(dog3);
-    cout << tree1.depth() << endl;
+    Dog dog1("1");
+    Dog dog2("22");
+    Dog dog3("333");
+    Dog dog4("4444");
+    Dog dog5("5555");
+    Dog dog6("6666");
+    Dog dog7("777");
+    
+    ExtendedBinaryTree<Dog> tree;
+    cout << (tree.depth() == 0 ? "yes" : "no") << endl;
+    
+    tree.insert(dog1);
+    tree.insert(dog2);
+    tree.insert(dog3);
+    tree.insert(dog4);
+    tree.insert(dog5);
+    
+    cout << (tree.depth() == 5 ? "yes" : "no") << endl;
+    cout << (tree.countMaxElements() == 2 ? "yes" : "no") << endl;
+    
+    
+    tree.insert(dog6);
+    tree.insert(dog7);
+    
+    cout << (tree.depth() == 6 ? "yes" : "no") << endl;
+    cout << (tree.countMaxElements() == 3 ? "yes" : "no") << endl;
+    
+    
 }

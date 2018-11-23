@@ -6,19 +6,15 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#ifndef ExtendedBinaryTreeTester_hpp
-#define ExtendedBinaryTreeTester_hpp
+#ifndef ExtendedBinaryTreeTester_h
+#define ExtendedBinaryTreeTester_h
 
 #include <stdio.h>
-#include "ExtendedBinaryTree.hpp"
-
-template <class T>
-class ExtendedBinaryTree;
-
+#include "ExtendedBinaryTree.h"
 
 class ExtendedBinaryTreeTester {
 public:
     static void test();
 };
 
-#endif /* ExtendedBinaryTreeTester_hpp */
+#endif /* ExtendedBinaryTreeTester_h */

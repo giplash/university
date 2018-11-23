@@ -6,8 +6,8 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#ifndef Dog_hpp
-#define Dog_hpp
+#ifndef Dog_h
+#define Dog_h
 
 #include <stdio.h>
 #include <string>
@@ -20,8 +20,9 @@ public:
     bool isGreaterOrEqualTo(Dog);
     bool isEqualTo(Dog);
     
+    Dog();
     Dog(std::string);
-    ~Dog();
+    ~Dog(){};
 };
 
-#endif /* Dog_hpp */
+#endif /* Dog_h */

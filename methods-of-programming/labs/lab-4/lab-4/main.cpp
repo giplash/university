@@ -7,9 +7,17 @@
 //
 
 #include <iostream>
-#include "ExtendedBinaryTreeTester.hpp"
+#include "ExtendedBinaryTreeTester.h"
+#include "Node.h"
+#include "Node.cpp"
+#include "BinaryTree.h"
+#include "BinaryTree.cpp"
+#include "ExtendedBinaryTree.h"
+#include "ExtendedBinaryTree.cpp"
+#include "Dog.h"
 
 int main(int argc, const char * argv[]) {
     ExtendedBinaryTreeTester::test();
+//    ExtendedBinaryTree<Dog> a;
     return 0;
 }

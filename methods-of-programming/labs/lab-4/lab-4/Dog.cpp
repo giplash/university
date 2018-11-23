@@ -6,10 +6,14 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#include "Dog.hpp"
+#include "Dog.h"
 #include <string>
 
 using namespace std;
+
+Dog::Dog() {
+    this->name = "";
+}
 
 Dog::Dog(string name) {
     this->name = name;

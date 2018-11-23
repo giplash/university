@@ -6,11 +6,11 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#ifndef BinaryTree_hpp
-#define BinaryTree_hpp
+#ifndef BinaryTree_h
+#define BinaryTree_h
 
 #include <stdio.h>
-#include "Node.hpp"
+#include "Node.h"
 
 template <class T>
 class BinaryTree {
@@ -26,4 +26,4 @@ public:
     ~BinaryTree();
 };
 
-#endif /* BinaryTree_hpp */
+#endif /* BinaryTree_h */

@@ -6,8 +6,8 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#ifndef Node_hpp
-#define Node_hpp
+#ifndef Node_h
+#define Node_h
 
 #include <stdio.h>
 
@@ -19,8 +19,8 @@ public:
     Node<T> *left;
     
     Node();
-    Node(T);    
-    Node(T, Node<T>*, Node<T>*);
+    Node(T);
+    ~Node() {};
 };
 
-#endif /* Node_hpp */
+#endif /* Node_h */

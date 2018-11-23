@@ -31,15 +31,15 @@
 		5B3A644E21A8936600C79ADA /* lab-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab-4"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3A645121A8936600C79ADA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5B3A645821A8940200C79ADA /* Node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
-		5B3A645921A8940200C79ADA /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
+		5B3A645921A8940200C79ADA /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		5B3A645B21A894A300C79ADA /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
-		5B3A645C21A894A300C79ADA /* BinaryTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
+		5B3A645C21A894A300C79ADA /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		5B3A645E21A8964F00C79ADA /* ExtendedBinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExtendedBinaryTree.cpp; sourceTree = "<group>"; };
-		5B3A645F21A8964F00C79ADA /* ExtendedBinaryTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExtendedBinaryTree.hpp; sourceTree = "<group>"; };
+		5B3A645F21A8964F00C79ADA /* ExtendedBinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedBinaryTree.h; sourceTree = "<group>"; };
 		5B3A646121A89D3200C79ADA /* ExtendedBinaryTreeTester.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExtendedBinaryTreeTester.cpp; sourceTree = "<group>"; };
-		5B3A646221A89D3200C79ADA /* ExtendedBinaryTreeTester.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExtendedBinaryTreeTester.hpp; sourceTree = "<group>"; };
+		5B3A646221A89D3200C79ADA /* ExtendedBinaryTreeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedBinaryTreeTester.h; sourceTree = "<group>"; };
 		5B3A646421A8ABDC00C79ADA /* Dog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
-		5B3A646521A8ABDC00C79ADA /* Dog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dog.hpp; sourceTree = "<group>"; };
+		5B3A646521A8ABDC00C79ADA /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,15 +74,15 @@
 			children = (
 				5B3A645121A8936600C79ADA /* main.cpp */,
 				5B3A645821A8940200C79ADA /* Node.cpp */,
-				5B3A645921A8940200C79ADA /* Node.hpp */,
+				5B3A645921A8940200C79ADA /* Node.h */,
 				5B3A645B21A894A300C79ADA /* BinaryTree.cpp */,
-				5B3A645C21A894A300C79ADA /* BinaryTree.hpp */,
+				5B3A645C21A894A300C79ADA /* BinaryTree.h */,
 				5B3A645E21A8964F00C79ADA /* ExtendedBinaryTree.cpp */,
-				5B3A645F21A8964F00C79ADA /* ExtendedBinaryTree.hpp */,
+				5B3A645F21A8964F00C79ADA /* ExtendedBinaryTree.h */,
 				5B3A646121A89D3200C79ADA /* ExtendedBinaryTreeTester.cpp */,
-				5B3A646221A89D3200C79ADA /* ExtendedBinaryTreeTester.hpp */,
+				5B3A646221A89D3200C79ADA /* ExtendedBinaryTreeTester.h */,
 				5B3A646421A8ABDC00C79ADA /* Dog.cpp */,
-				5B3A646521A8ABDC00C79ADA /* Dog.hpp */,
+				5B3A646521A8ABDC00C79ADA /* Dog.h */,
 			);
 			path = "lab-4";
 			sourceTree = "<group>";

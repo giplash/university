@@ -6,13 +6,13 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#ifndef ExtendedBinaryTree_hpp
-#define ExtendedBinaryTree_hpp
+#ifndef ExtendedBinaryTree_h
+#define ExtendedBinaryTree_h
 
 #include <stdio.h>
 #include <string>
-#include "BinaryTree.hpp"
-#include "Node.hpp"
+#include "BinaryTree.h"
+#include "Node.h"
 
 template <class T>
 class ExtendedBinaryTree : public BinaryTree<T> {
@@ -25,8 +25,6 @@ public:
     int countMaxElements();
     int getAmount();
     T* toArray();
-    
-    friend class ExtendedBinaryTreeTester;
 };
 
-#endif /* ExtendedBinaryTree_hpp */
+#endif /* ExtendedBinaryTree_h */

@@ -6,11 +6,12 @@
 //  Copyright © 2018 BSU. All rights reserved.
 //
 
-#include "ExtendedBinaryTree.hpp"
-#include "BinaryTree.hpp"
+#include "ExtendedBinaryTree.h"
+#include "BinaryTree.h"
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Node.h"
 
 using namespace std;
 
