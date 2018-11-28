@@ -33,15 +33,17 @@ module.exports = {
 
   plugins: [
     new WriteFilePlugin(),
-    new CopyWebpackPlugin([{
-      from: __dirname + '/client/public',
-      to: path.join(__dirname, '/server/public'),
-      force: true,
-    },
-    {
-      from: __dirname + '/client/views',
-      to: path.join(__dirname, '/server/views'),
-      force: true,
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: __dirname + '/client/public',
+        to: path.join(__dirname, '/server/public'),
+        force: true,
+      },
+      {
+        from: __dirname + '/client/views',
+        to: path.join(__dirname, '/server/views'),
+        force: true,
+      }
+    ]),
   ],
 };
