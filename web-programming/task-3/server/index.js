@@ -1,10 +1,13 @@
 import express from 'express';
 import path from 'path';
+import db from './utils/db';
 
 const app = express();
 
+db.execute('SELECT * FROM test')
+
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'vsiews'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
