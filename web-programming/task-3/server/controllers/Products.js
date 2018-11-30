@@ -29,6 +29,7 @@ export default class {
           success: false,
           errorMessage: 'You don\'t have enough money'
         });
+        return;
       }
       await CardModel.reduceBalance(cardData, price);
       await ProductsModel.reduceQuantity(id, quantity);
