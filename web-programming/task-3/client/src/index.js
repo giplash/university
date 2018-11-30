@@ -4,6 +4,7 @@ import * as api from './api';
 import './less/main.less';
 import $ from 'jQuery';
 
+
 const state = {
   data: null,
   isLoadingData: false,
@@ -26,26 +27,29 @@ const render = () => {
   $('#root').html('<div class="container" />');
   const { screen } = state;
   switch (screen) {
-  case 'main':
-    renderMainScreen();
-    break;
-  case 'table':
-    renderButtons();
-    renderTable();
-    break;
-  case 'add':
-    renderAddScreen();
-    break;
-  case 'buy':
-    renderBuyScreen();
-    break;
-  case 'post-buy':
-    renderPostBuyScreen();
-    break;
-  case 'bills':
-    renderBillsScreen();
-    break;
-  }
+    case 'main':
+      renderMainScreen();
+      break;
+    case 'table':
+      renderButtons();
+      renderTable();
+      break;
+    case 'add':
+      renderAddScreen();
+      break;
+    case 'buy':
+      renderBuyScreen();
+      break;
+    case 'card':
+      renderCardScreen();
+      break;
+    case 'post-buy':
+      renderPostBuyScreen();
+      break;
+    case 'bills':
+      renderBillsScreen();
+      break;
+    }
 };
 
 const renderMainScreen = () => {
@@ -191,6 +195,10 @@ const renderAddScreen = () => {
       );
       return;
     }
+    const prevState = JSON.parse(JSON.stringify(state));
+    api.addProduct({ id, name, price, quantity }).catch(() => {
+      setState({ ...prevState });
+    });
     setState({
       data: { ...data, [id]: { id, name, price, quantity } },
       screen: 'table',
@@ -204,7 +212,7 @@ const renderAddScreen = () => {
 };
 
 const renderBuyScreen = () => {
-  const { selectedItem: id, data } = state;
+  const { selectedItem: id, data, orderQuantity } = state;
   const item = data[id];
   $('.container').append(`
     <form class="buy-form">
@@ -214,11 +222,18 @@ const renderBuyScreen = () => {
       </div>
       <div class="buy-form__row">
         <label for="buy-form__price">Price</label>
-        <input type="text" disabel id="buy-form__price" value="${item.price}" readonly />
+        <input 
+            type="text" 
+            disabled 
+            id="buy-form__price" 
+            value="${orderQuantity * item.price || item.price}" 
+            readonly 
+          />
       </div>
       <div class="buy-form__row">
         <label for="buy-form__quantity">Quantity</label>
-        <input type="number" id="buy-form__quantity" value="1" min="1"/>
+        <input type="number" id="buy-form__quantity" value="${orderQuantity || 1}" min="1"/>
+    
       </div>
       <div class="buy-form__row">
         <button id="buy-form__back">Back</button>
@@ -249,9 +264,69 @@ const renderBuyScreen = () => {
         }
       },
       orderQuantity: +$('#buy-form__quantity').val(),
-      screen: 'post-buy'
+      screen: 'card'
     });
   });
+};
+
+const renderCardScreen = () => {
+  $('.container').append(`
+    <form class="card-form">
+        <div class="card-form__row">
+            <label for="card-number">Card number:</label>
+            <input type="text" id="card-number" class="card-form__input">                
+        </div>
+        <div class="card-form__row">
+            <label for="card-owner">Card owner name:</label>
+            <input type="text" id="card-owner" class="card-form__input">                
+        </div>
+        <div class="card-form__row">
+            <label for="card-cvv2">CVV2:</label>
+            <input type="text" id="card-cvv2" class="card-form__input">                
+        </div>
+        <div class="card-form__row">
+            <label for="card-validity">Validity: (MM/YY)</label>
+            <input type="text" id="card-validity" class="card-form__input">                
+        </div>
+        <div class="card-form__row">
+            <button type="submit">Submit</button> 
+            <button class="card-validity__back-button">Back</button>               
+        </div>
+    </form>
+  `);
+  const { selectedItem, orderQuantity } = state;
+  $('.card-form').on('submit', (e) => {
+    e.preventDefault();
+    const number = +$('#card-number').val();
+    const name = $('#card-owner').val();
+    const cvv2 = +$('#card-cvv2').val();
+    const validity =  $('#card-validity').val();
+    const messages = utils.validateCard({ number, name, cvv2, validity });
+    if (messages.some(item => item !== null)) {
+      alert(messages
+        .filter(item => item !== null)
+        .join('\n')
+      );
+      return;
+    }
+    api.buyProduct(
+      selectedItem, orderQuantity, {
+        ownerName: name,
+        number,
+        cvv2,
+        validity
+      })
+      .then(() => {
+        setState({
+          screen: 'post-buy'
+        });
+      });
+  });
+  $('.card-validity__back-button').click(() => {
+    setState({
+      screen: 'buy'
+    })
+  })
 };
 
 const renderPostBuyScreen = () => {
@@ -271,13 +346,17 @@ const renderPostBuyScreen = () => {
   $('.post-buy-form__button_no').click((e) => {
     e.preventDefault();
     setState({
-      screen: 'table'
+      screen: 'table',
+      selectedItem: null,
+      orderQuantity: null
     });
   });
   $('.post-buy-form__button_yes').click((e) => {
     e.preventDefault();
     setState({
       screen: 'table',
+      selectedItem: null,
+      orderQuantity: null,
       bills: [
         ...bills,
         {

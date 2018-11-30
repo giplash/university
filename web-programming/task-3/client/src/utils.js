@@ -22,6 +22,24 @@ export const validate = (name, price, quantity) => {
   return res;
 };
 
+export const validateCard = fields => {
+  const { number, name, cvv2, validity } = fields;
+  const res = [null, null, null, null];
+  if (isNaN(number) || String(number).length !== 16) {
+    res[0] = 'Invalid card number';
+  }
+  if (!isNaN(name)) {
+    res[1] = 'Invalid card owner name';
+  }
+  if (isNaN(cvv2) || String(cvv2).length !== 3) {
+    res[2] = 'Invalid cvv2 code';
+  }
+  if (validity.length !== 5 || !validity.match(/\d\d\/\d\d/)) {
+    res[3] = 'Invalid card validity';
+  }
+  return res;
+}
+
 export const sort = (data, type) => {
   const array = Object.values(data);
   if (type === 'name') {
