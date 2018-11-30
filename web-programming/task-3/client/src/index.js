@@ -1,4 +1,3 @@
-import data from './data';
 import * as utils from './utils';
 import * as api from './api';
 import './less/main.less';
@@ -27,29 +26,29 @@ const render = () => {
   $('#root').html('<div class="container" />');
   const { screen } = state;
   switch (screen) {
-    case 'main':
-      renderMainScreen();
-      break;
-    case 'table':
-      renderButtons();
-      renderTable();
-      break;
-    case 'add':
-      renderAddScreen();
-      break;
-    case 'buy':
-      renderBuyScreen();
-      break;
-    case 'card':
-      renderCardScreen();
-      break;
-    case 'post-buy':
-      renderPostBuyScreen();
-      break;
-    case 'bills':
-      renderBillsScreen();
-      break;
-    }
+  case 'main':
+    renderMainScreen();
+    break;
+  case 'table':
+    renderButtons();
+    renderTable();
+    break;
+  case 'add':
+    renderAddScreen();
+    break;
+  case 'buy':
+    renderBuyScreen();
+    break;
+  case 'card':
+    renderCardScreen();
+    break;
+  case 'post-buy':
+    renderPostBuyScreen();
+    break;
+  case 'bills':
+    renderBillsScreen();
+    break;
+  }
 };
 
 const renderMainScreen = () => {
