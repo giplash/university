@@ -1,19 +1,15 @@
 import express from 'express';
 import path from 'path';
-import db from './utils/db';
+import setRouting from './routes';
 
 const app = express();
 
-db.execute('SELECT * FROM test')
-
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'vsiews'));
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('*', (req, res) => {
-  res.render('index');
-});
+setRouting(app);
 
 app.listen(3000, () => {
   console.log('App listening on http://127.0.0.1:3000');

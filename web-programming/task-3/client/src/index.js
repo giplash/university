@@ -1,10 +1,12 @@
 import data from './data';
 import * as utils from './utils';
+import * as api from './api';
 import './less/main.less';
 import $ from 'jQuery';
 
 const state = {
-  data,
+  data: null,
+  isLoadingData: false,
   screen: 'main',
   sort: 'name',
   bills: [],
@@ -87,8 +89,23 @@ const renderButtons = () => {
   }));
 };
 
-const renderTable = () => {
-  const { data, tableMode, selectedItem, sort } = state;
+const renderTable = async () => {
+  const { data, isLoadingData, tableMode, selectedItem, sort } = state;
+  if (data === null && isLoadingData === false) {
+    setState({
+      isLoadingData: true
+    });
+    api.fetchData().then(data => {
+      setState({ data, isLoadingData: false });
+    });
+    return;
+  }
+  if (isLoadingData === true) {
+    $('.container').append(
+      '<p>Loading...</p>'
+    );
+    return;
+  }
   $('.container').append(
     `<table><tbody>
       <tr>
