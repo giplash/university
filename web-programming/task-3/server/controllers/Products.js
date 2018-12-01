@@ -1,5 +1,6 @@
 import ProductsModel from '../models/Products';
 import CardModel from '../models/Card';
+import BillsModel from '../models/Bills';
 
 export default class {
   static async getProducts(req, res) {
@@ -24,6 +25,7 @@ export default class {
       const { id, quantity, cardData } = req.body;
       const balance = await CardModel.getBalance(cardData);
       const price = await ProductsModel.getPrice(id, quantity);
+      const name = await ProductsModel.getName(id);
       if (balance < price) {
         res.json({
           success: false,
@@ -33,6 +35,12 @@ export default class {
       }
       await CardModel.reduceBalance(cardData, price);
       await ProductsModel.reduceQuantity(id, quantity);
+      await BillsModel.add({
+        name,
+        quantity,
+        price,
+        date: (new Date()).toString()
+      });
       res.json({
         success: true,
         errorMessage: null

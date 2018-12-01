@@ -7,9 +7,10 @@ import $ from 'jQuery';
 const state = {
   data: null,
   isLoadingData: false,
+  isLoadingBills: false,
   screen: 'main',
   sort: 'name',
-  bills: [],
+  bills: null,
   tableMode: null,
   selectedItem: null,
   orderQuantity: null
@@ -350,8 +351,12 @@ const renderPostBuyScreen = () => {
       orderQuantity: null
     });
   });
-  $('.post-buy-form__button_yes').click((e) => {
+  $('.post-buy-form__button_yes').click(async (e) => {
     e.preventDefault();
+    let { bills } = state;
+    if (bills === null) {
+      bills = await api.getBills();
+    }
     setState({
       screen: 'table',
       selectedItem: null,
@@ -370,7 +375,22 @@ const renderPostBuyScreen = () => {
 };
 
 const renderBillsScreen = () => {
-  const { bills } = state;
+  const { bills, isLoadingBills } = state;
+  if (bills === null && isLoadingBills === false) {
+    api.getBills().then((bills) => {
+      setState({
+        bills,
+        isLoadingBills: false
+      });
+    });
+    return;
+  }
+  if (isLoadingBills === true) {
+    $('.container').append(`
+      <p>Loading...</p>
+    `);
+    return;
+  }
   $('.container').append(`
     <div class="bills">
       <div class="bills__buttons">

@@ -6,6 +6,15 @@ export default class {
     return res[0];
   }
 
+  static async getName(id) {
+    const res = await db.execute(`
+      SELECT *
+      FROM products
+      WHERE id = ${id}
+    `);
+    return res[0][0].name;
+  }
+
   static async reduceQuantity(id, diff) {
     const res = await db.execute(`
       SELECT * 

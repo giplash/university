@@ -59,3 +59,17 @@ export const addProduct = async info => {
     return Promise.reject();
   }
 };
+
+export const getBills = async () => {
+  try {
+    const res = await fetch('/api/bills');
+    const resJSON = await res.json();
+    if (resJSON.success === false) {
+      alert(resJSON.errorMessage);
+      return Promise.reject();
+    }
+    return resJSON.bills;
+  } catch(e) {
+    return Promise.reject();
+  }
+}
