@@ -325,8 +325,8 @@ const renderCardScreen = () => {
   $('.card-validity__back-button').click(() => {
     setState({
       screen: 'buy'
-    })
-  })
+    });
+  });
 };
 
 const renderPostBuyScreen = () => {
@@ -354,14 +354,11 @@ const renderPostBuyScreen = () => {
   $('.post-buy-form__button_yes').click(async (e) => {
     e.preventDefault();
     let { bills } = state;
-    if (bills === null) {
-      bills = await api.getBills();
-    }
     setState({
       screen: 'table',
       selectedItem: null,
       orderQuantity: null,
-      bills: [
+      bills: bills === null ? await api.getBills() : [
         ...bills,
         {
           name: item.name,
