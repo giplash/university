@@ -16,6 +16,7 @@
 #include "ExtendedBinaryTree.h"
 #include "ExtendedBinaryTree.cpp"
 #include "Dog.h"
+#include "DogComparator.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ void ExtendedBinaryTreeTester::test() {
     Dog dog6("6666");
     Dog dog7("777");
     
-    ExtendedBinaryTree<Dog> tree;
+    ExtendedBinaryTree<Dog, DogComparator> tree;
     cout << (tree.depth() == 0 ? "yes" : "no") << endl;
     
     tree.insert(dog1);
@@ -46,6 +47,8 @@ void ExtendedBinaryTreeTester::test() {
     
     cout << (tree.depth() == 6 ? "yes" : "no") << endl;
     cout << (tree.countMaxElements() == 3 ? "yes" : "no") << endl;
+    
+    tree.inOrder();
     
     
 }

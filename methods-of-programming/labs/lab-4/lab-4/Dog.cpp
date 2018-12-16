@@ -8,6 +8,7 @@
 
 #include "Dog.h"
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -19,14 +20,7 @@ Dog::Dog(string name) {
     this->name = name;
 }
 
-bool Dog::isEqualTo(Dog dog) {
-    return dog.name.length() == name.length();
-}
-
-bool Dog::isGreaterThan(Dog dog) {
-    return name.length() > dog.name.length();
-}
-
-bool Dog::isGreaterOrEqualTo(Dog dog) {
-    return name.length() >= dog.name.length();
+std::ostream& operator << (std::ostream& stream, const Dog& a){
+    stream << a.name;
+    return stream;
 }

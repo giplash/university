@@ -13,6 +13,7 @@
 		5B3A646021A8964F00C79ADA /* ExtendedBinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A645E21A8964F00C79ADA /* ExtendedBinaryTree.cpp */; };
 		5B3A646321A89D3200C79ADA /* ExtendedBinaryTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A646121A89D3200C79ADA /* ExtendedBinaryTreeTester.cpp */; };
 		5B3A646621A8ABDC00C79ADA /* Dog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A646421A8ABDC00C79ADA /* Dog.cpp */; };
+		5B65821221C4F58900FF2BB4 /* DogComparator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B65821121C4F58900FF2BB4 /* DogComparator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		5B3A646221A89D3200C79ADA /* ExtendedBinaryTreeTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedBinaryTreeTester.h; sourceTree = "<group>"; };
 		5B3A646421A8ABDC00C79ADA /* Dog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dog.cpp; sourceTree = "<group>"; };
 		5B3A646521A8ABDC00C79ADA /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
+		5B65821121C4F58900FF2BB4 /* DogComparator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DogComparator.cpp; sourceTree = "<group>"; };
+		5B65821321C4F59600FF2BB4 /* DogComparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DogComparator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 				5B3A646121A89D3200C79ADA /* ExtendedBinaryTreeTester.cpp */,
 				5B3A646221A89D3200C79ADA /* ExtendedBinaryTreeTester.h */,
 				5B3A646421A8ABDC00C79ADA /* Dog.cpp */,
+				5B65821121C4F58900FF2BB4 /* DogComparator.cpp */,
+				5B65821321C4F59600FF2BB4 /* DogComparator.h */,
 				5B3A646521A8ABDC00C79ADA /* Dog.h */,
 			);
 			path = "lab-4";
@@ -145,6 +150,7 @@
 			files = (
 				5B3A646621A8ABDC00C79ADA /* Dog.cpp in Sources */,
 				5B3A645221A8936600C79ADA /* main.cpp in Sources */,
+				5B65821221C4F58900FF2BB4 /* DogComparator.cpp in Sources */,
 				5B3A646021A8964F00C79ADA /* ExtendedBinaryTree.cpp in Sources */,
 				5B3A646321A89D3200C79ADA /* ExtendedBinaryTreeTester.cpp in Sources */,
 				5B3A645A21A8940200C79ADA /* Node.cpp in Sources */,

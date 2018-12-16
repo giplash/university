@@ -11,15 +11,12 @@
 
 #include <stdio.h>
 #include <string>
+#include <fstream>
 
 class Dog {
 public:
-    std::string name;
-    
-    bool isGreaterThan(Dog);
-    bool isGreaterOrEqualTo(Dog);
-    bool isEqualTo(Dog);
-    
+    std::string name;    
+    friend std::ostream& operator << (std::ostream&, const Dog&);
     Dog();
     Dog(std::string);
     ~Dog(){};
