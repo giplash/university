@@ -13,17 +13,10 @@
 
 using namespace std;
 
-std::vector<Complex> VectorFabric::create() {
+std::vector<Complex> VectorFabric::create(double** data, int length) {
     std::vector<Complex> res;
-    int dimension;
-    cout << "Input vector's dimension: ";
-    cin >> dimension;
-    cout << "Input coords:" << endl;
-    for (int i = 0; i < dimension; i++) {
-        cout << i + 1 << ") ";
-        double real, imag;
-        cin >> real >> imag;
-        res.push_back(Complex(real, imag));
+    for (int i = 0; i < length; i++) {
+        res.push_back(Complex(data[i][0], data[i][1]));
     }
     return res;
 }

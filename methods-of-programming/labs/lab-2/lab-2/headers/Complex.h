@@ -44,6 +44,9 @@ public:
     Complex();
     Complex(const Complex &a);
     Complex(double, double);
+    ~Complex() {
+        delete[] value;
+    }
     
     
 };

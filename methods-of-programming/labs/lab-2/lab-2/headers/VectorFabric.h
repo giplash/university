@@ -14,7 +14,7 @@
 
 class VectorFabric {
 public:
-    static std::vector<Complex> create();
+    static std::vector<Complex> create(double**, int);
 };
 
 

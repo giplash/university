@@ -11,6 +11,9 @@
 #include <vector>
 #include "VectorManipulator.h"
 #include "Complex.h"
+#include <iostream>
+
+using namespace std;
 
 std::vector<Complex> VectorManipulator::add(
                                             std::vector<Complex> vector1,
@@ -20,7 +23,7 @@ std::vector<Complex> VectorManipulator::add(
         throw std::invalid_argument( "received vectors with diferrent dimensions" );
     }
     size_t dimension = vector1.size();
-    std::vector<Complex> res(dimension - 1);
+    std::vector<Complex> res;
     for (int i = 0; i < dimension; i++) {
         res.push_back(vector1[i] + vector2[i]);
     }
