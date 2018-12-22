@@ -14,6 +14,6 @@ app.use(bodyParser.json());
 
 setRouting(app);
 
-app.listen(3000, () => {
-  console.log('App listening on http://127.0.0.1:3000');
+app.listen(3001, () => {
+  console.log('App listening on http://127.0.0.1:3001');
 });

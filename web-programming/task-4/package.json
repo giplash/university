@@ -59,6 +59,7 @@
   "scripts": {
     "client": "node scripts/start.js",
     "server": "nodemon --exec babel-node src/server/index.js",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },

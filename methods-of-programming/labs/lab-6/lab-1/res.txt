@@ -1,0 +1,30 @@
+Anashkin Viktor Andreevich
+14.4.2000
+Minsk, Oktyabrskaya 10a
++375 29 8981600
+faculty: mmf, course: 2
+
+Eroshkin Pavel Huanovich
+10.10.2000
+Brest
++375 29 1234567
+faculty: mmf, course: 1
+
+Mikulich Vlad Vitalyevich
+1.1.2000
+Brest
++375 29 9885421
+faculty: fpmi, course: 1
+
+Afansyeva Veronika Andreyevna
+10.5.2000
+Vitebsk
++375 29 65748239
+faculty: fpmi, course: 2
+
+Zhukov Nikolay Petrovich
+10.12.2000
+Minsk
++375 29 8980000
+faculty: mmf, course: 3
+

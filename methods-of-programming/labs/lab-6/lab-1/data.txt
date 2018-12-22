@@ -1,0 +1,41 @@
+Anashkin Viktor Andreevich
+14 4 2000
+Minsk, Oktyabrskaya 10a
++375 29 8981600
+mmf 2
+
+Eroshkin Pavel Huanovich
+10 10 2000
+Brest
++375 29 1234567
+mmf 1
+
+Karchevskaya Darya Sergeyevna
+1 12 1999
+Rechica
++375 29 1234567
+mmf 2
+
+Mikulich Vlad Vitalyevich
+1 1 2000
+Brest
++375 29 9885421
+fpmi 1
+
+Afansyeva Veronika Andreyevna
+10 5 2000
+Vitebsk
++375 29 65748239
+fpmi 2
+
+Ivanov Ivan Ivanovich
+13 9 1998
+Grodno
++375 29 9885421
+fpmi 1
+
+Zhukov Nikolay Petrovich
+10 12 2000
+Minsk
++375 29 8980000
+mmf 3
