@@ -10,25 +10,24 @@
 #define MyStack_h
 
 #include <stdio.h>
-#include <stack>
+#include "Stack.h"
 #include <string>
 
-template <class T>
-class MyStack : public std::stack<T> {
+class MyStack : public Stack {
 private:
     time_t lastUsed;
     void updateLastUsed();
 public:
     time_t getLastUsed();
     std::string getStringLastUsed();
-    size_t size();
-    bool empty();
-    T& top();
-    void push(const T&);
-    void push(T&&);
-    void pop();
-    void swap(std::stack<T>&) noexcept;
-    void emplace(T&&);
+    
+    void push(int);
+    int pop();
+    int peek();
+    
+    int size();
+    bool isEmpty();
+    bool isFull();
 };
 
 

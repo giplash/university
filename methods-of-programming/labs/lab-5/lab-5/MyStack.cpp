@@ -11,69 +11,54 @@
 #include <ctime>
 #include <string>
 
-template <class T>
-void MyStack<T>::updateLastUsed() {
+void MyStack::updateLastUsed() {
     lastUsed = time(NULL);
 }
 
-template <class T>
-time_t MyStack<T>::getLastUsed() {
+time_t MyStack::getLastUsed() {
     return lastUsed;
 }
 
-template <class T>
-std::string MyStack<T>::getStringLastUsed() {
+std::string MyStack::getStringLastUsed() {
     time_t rawtime = lastUsed;
     struct tm * timeinfo;
     time(&rawtime);
     timeinfo = localtime (&rawtime);
     return asctime(timeinfo);
 }
-
-template <class T>
-size_t MyStack<T>::size(){
+ 
+int MyStack::size(){
     updateLastUsed();
-    return std::stack<T>::size();
+    return Stack::size();
 }
 
-template <class T>
-bool MyStack<T>::empty(){
+
+bool MyStack::isEmpty(){
     updateLastUsed();
-    return std::stack<T>::empty();
+    return Stack::isEmpty();
 }
 
-template <class T>
-T& MyStack<T>::top(){
+
+int MyStack::peek(){
     updateLastUsed();
-    return std::stack<T>::top();
+    return Stack::peek();
 }
 
-template <class T>
-void MyStack<T>::push(const T& val){
+
+void MyStack::push(int val){
     updateLastUsed();
-    return std::stack<T>::push(val);
+    return Stack::push(val);
 }
 
-template <class T>
-void MyStack<T>::push(T&& val){
+
+
+int MyStack::pop(){
     updateLastUsed();
-    return std::stack<T>::push(val);
+    return Stack::pop();
 }
 
-template <class T>
-void MyStack<T>::pop(){
-    updateLastUsed();
-    return std::stack<T>::pop();
-}
 
-template <class T>
-void MyStack<T>::swap(std::stack<T>& val) noexcept{
+bool MyStack::isFull() {
     updateLastUsed();
-    return std::stack<T>::swap(val);
-}
-
-template <class T>
-void MyStack<T>::emplace(T&& val) {
-    updateLastUsed();
-    return std::stack<T>::emplace(val);
+    return Stack::isFull();
 }

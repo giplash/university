@@ -7,21 +7,24 @@
 //
 
 #include <iostream>
-#include "MyStack.h"
-#include "MyStack.cpp"
 #include <unistd.h>
+#include "Stack.h"
+#include "MyStack.h"
 using namespace std;
 
 int main() {
-    MyStack<int> test;
-    test.push(5);
-    cout << test.getStringLastUsed() << endl;
+    Stack* base;
+    MyStack child;
+    base = &child;
+    
+    base->push(5);
+    cout << child.getStringLastUsed() << endl;
     usleep(1000000);
-    test.push(6);
-    cout << test.getStringLastUsed() << endl;
+    base->push(6);
+    cout << child.getStringLastUsed() << endl;
     usleep(1000000);
-    test.pop();
-    cout << test.getStringLastUsed() << endl;
+    base->pop();
+    cout << child.getStringLastUsed() << endl;
     return 0;
     
 }
