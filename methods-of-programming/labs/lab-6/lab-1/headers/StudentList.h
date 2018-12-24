@@ -27,6 +27,9 @@ public:
     StudentList filterByCourse(int);
 
     StudentList(vector<Student>);
+    StudentList() {
+        students = vector<Student>(0);
+    }
 };
 
 

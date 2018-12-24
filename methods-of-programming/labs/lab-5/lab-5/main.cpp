@@ -20,10 +20,10 @@ int main() {
     base->push(5);
     cout << child.getStringLastUsed() << endl;
     usleep(1000000);
-    base->push(6);
+    base->pop();
     cout << child.getStringLastUsed() << endl;
     usleep(1000000);
-    base->pop();
+    base->push(5);
     cout << child.getStringLastUsed() << endl;
     return 0;
     

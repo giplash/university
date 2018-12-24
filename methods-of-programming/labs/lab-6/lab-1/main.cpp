@@ -11,6 +11,7 @@
 #include <stdexcept>
 #include "StudentList.h"
 #include "iStudentList.h"
+#include "InvalidYear.h"
 
 using namespace std;
 
@@ -54,7 +55,6 @@ void showMenu(StudentList list) {
                     list.writeRes("res.txt");
                 } catch (const ifstream::failure& e) {
                     cout << e.what() << endl;
-                    exit(1);
                 }
                 break;
             }
@@ -63,12 +63,16 @@ void showMenu(StudentList list) {
                 cout << "Input year" << endl;
                 cin >> year;
                 cout << endl;
-                StudentList newList = list.filterByYear(year);
+                StudentList newList;
+                try {
+                    newList = list.filterByYear(year);
+                } catch (const InvalidYear& e) {
+                    cout << e.what() << endl;
+                }
                 try {
                     newList.writeRes("res.txt");
                 } catch (const ifstream::failure& e) {
                     cout << e.what() << endl;
-                    exit(1);
                 }
                 break;
             }
@@ -77,12 +81,17 @@ void showMenu(StudentList list) {
                 cout << "Input faculty" << endl;
                 cin >> faculty;
                 cout << endl;
-                StudentList newList = list.filterByFaculty(faculty);
+                StudentList newList;
+                try {
+                   newList = list.filterByFaculty(faculty);
+                } catch (string s) {
+                    cout << s << endl;
+                    break;
+                }
                 try {
                     newList.writeRes("res.txt");
                 } catch (const ifstream::failure& e) {
                     cout << e.what() << endl;
-                    exit(1);
                 }
                 break;
             }
@@ -96,12 +105,11 @@ void showMenu(StudentList list) {
                     newList.writeRes("res.txt");
                 } catch (const ifstream::failure& e) {
                     cout << e.what() << endl;
-                    exit(1);
                 }
                 break;
             }
             default:
-                exit(1);
+                exit(0);
                 break;
         }
     }

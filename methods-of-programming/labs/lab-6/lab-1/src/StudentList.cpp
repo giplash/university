@@ -11,6 +11,7 @@
 #include <cstring>
 #include <string>
 #include <stdexcept>
+#include "InvalidYear.h"
 #include "StudentList.h"
 
 using namespace std;
@@ -22,6 +23,10 @@ void StudentList::printElement(int i) {
 
 
 StudentList StudentList::filterByFaculty(char* faculty) {
+    if (strlen(faculty) < 2) {
+        string message = "invalid faculty";
+        throw message;
+    }
     vector<Student> newStudents;
     if (faculty != nullptr) {
         for (int i = 0; i < students.size(); i++) {
@@ -44,6 +49,9 @@ StudentList StudentList::filterByCourse(int course) {
 };
 
 StudentList StudentList::filterByYear(int year) {
+    if (year >= 2002 || year < 1995) {
+        throw InvalidYear();
+    }
     vector<Student> newStudents;
     for (int i = 0; i < students.size(); i++) {
         if (students[i].getPersonInfo().getBirthdate().getYear() >= year) {

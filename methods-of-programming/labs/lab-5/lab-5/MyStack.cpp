@@ -10,6 +10,9 @@
 #include <stack>
 #include <ctime>
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 void MyStack::updateLastUsed() {
     lastUsed = time(NULL);
@@ -46,7 +49,8 @@ int MyStack::peek(){
 
 
 void MyStack::push(int val){
-    updateLastUsed();
+    updateLastUsed();    
+    cout << "from MyStack" << endl;
     return Stack::push(val);
 }
 
@@ -54,6 +58,7 @@ void MyStack::push(int val){
 
 int MyStack::pop(){
     updateLastUsed();
+    cout << "from MyStack" << endl;
     return Stack::pop();
 }
 

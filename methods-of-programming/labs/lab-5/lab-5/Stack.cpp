@@ -20,6 +20,8 @@ void Stack::push(int x) {
         cout << "Stack OverFlow. Program Terminated\n";
         exit(EXIT_FAILURE);
     }
+    
+    cout << "from Stack" << endl;
     arr[++top] = x;
 }
 
@@ -29,6 +31,8 @@ int Stack::pop() {
         cout << "UnderFlow. Program Terminated\n";
         exit(EXIT_FAILURE);
     }
+    
+    cout << "from Stack" << endl;
     return arr[top--];
 }
 

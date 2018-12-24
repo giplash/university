@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		5B0FB1EA214C55A500CAD346 /* iStudentList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iStudentList.h; sourceTree = "<group>"; };
 		5B0FB1EB214C560900CAD346 /* iStudentList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = iStudentList.cpp; sourceTree = "<group>"; };
+		5B47A19421CE056F00792DCD /* InvalidYear.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvalidYear.h; sourceTree = "<group>"; };
 		5B52121421CDBDBE00A2F4BD /* res.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = res.txt; sourceTree = "<group>"; };
 		5BA84DCF213BF85300E19C5B /* lab-1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lab-1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA84DD2213BF85300E19C5B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				5BA84DD9213BFDAC00E19C5B /* Student.h */,
 				5BEF7FF6213EE357001CA0AA /* StudentList.h */,
 				5B0FB1EA214C55A500CAD346 /* iStudentList.h */,
+				5B47A19421CE056F00792DCD /* InvalidYear.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";

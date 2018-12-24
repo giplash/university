@@ -23,7 +23,7 @@ public:
     Stack(int size = SIZE);
     
     void virtual push(int);
-    int virtual pop();
+    int pop();
     int virtual peek();
     
     int virtual size();
