@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import * as PIXI from "pixi.js";
-import { drawArrow, drawPoint, clearView, isIntersecting } from "./utils";
+import {drawArrow, drawPoint, clearView, isIntersecting, isCoincide} from "./utils";
 import math from 'mathjs';
 
 const WIDTH = 400;
@@ -39,7 +39,9 @@ const main = () => {
 
   const res = isIntersecting(
     startPointX1, startPointY1, endPointX1, endPointY1, startPointX2, startPointY2, endPointX2, endPointY2
-  ) ? 'Пересекаются' : 'Не пересекаются';
+  ) ? 'Пересекаются' : isCoincide(
+    startPointX1, startPointY1, endPointX1, endPointY1, startPointX2, startPointY2, endPointX2, endPointY2
+  ) ? 'Совпадают' : 'Не пересекаются';
   $('.task-2 .answer').text(res);
 };
 

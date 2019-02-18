@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import * as PIXI from "pixi.js";
-import { clearView, drawSegment, isSimplePolygon } from "./utils";
+import { clearView, drawSegment, isSimplePolygon, drawArrow } from "./utils";
 import math from 'mathjs';
 
 const WIDTH = 400;
@@ -69,17 +69,18 @@ const getRes = (edges) => {
   if (!isSimplePolygon(edges)) {
     return 'Впуклый';
   }
-  let prevValue = null;
-  for (let i = 0; i < edges.length - 1; i++) {
+  let prevSign = null;
+  for (let i = 0; i < edges.length; i++) {
+    const nextEdge = edges[i + 1] || edges[0];
     const det = math.det(math.matrix([
       [edges[i][1][0] - edges[i][0][0], edges[i][1][1] - edges[i][0][1]],
-      [edges[i + 1][1][0] - edges[i][0][0], edges[i + 1][1][1] - edges[i][0][1]]
+      [nextEdge[1][0] - edges[i][0][0], nextEdge[1][1] - edges[i][0][1]]
     ]));
-    if (det > 0 !== prevValue && prevValue !== null) {
+
+    if (prevSign !== null && Math.sign(det) !== prevSign) {
       return 'Впуклый';
-    } else {
-      prevValue = det > 0;
     }
+    prevSign = Math.sign(det);
   }
   return 'Выпуклый';
 };
