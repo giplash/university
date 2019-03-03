@@ -1,4 +1,4 @@
-package by.bsu.lab2.action;
+package by.bsu.lab2.validator;
 
 /**
  * Класс для проверки корректности данных матрицы

@@ -1,6 +1,7 @@
 package by.bsu.lab2.action;
 
-import by.bsu.lab2.constants.Directions;
+import by.bsu.lab2.constant.Directions;
+import by.bsu.lab2.entity.Matrix;
 import by.bsu.lab2.exceptions.MatrixIllegalIndexException;
 
 /**

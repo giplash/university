@@ -1,6 +1,6 @@
 package by.bsu.lab2;
 
-import by.bsu.lab2.action.Matrix;
+import by.bsu.lab2.entity.Matrix;
 import by.bsu.lab2.action.MatrixShifter;
 import by.bsu.lab2.exceptions.MatrixIllegalIndexException;
 import by.bsu.lab2.exceptions.MatrixIllegalSizeException;

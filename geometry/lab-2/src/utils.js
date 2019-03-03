@@ -80,14 +80,40 @@ export const getSegmentToRightBorderFromPoint = point => {
   ]
 };
 
+export const isPointToTheRightOfLine = (point, p1, p2) => {
+  return math.det(formMatrix(point, beginLine, endLine)) > 0;
+};
+
+export const isPointToTheLeftOfLine = (point, p1, p2) => {
+  return math.det(formMatrix(point, p1, p2)) < 0;
+};
+
 export const isPointInsidePolygon = (point, polygon) => {
   const segmentPoints = getSegmentToRightBorderFromPoint(point);
   const polygonPoints = getPolygonPoints(polygon);
   let res = 0;
+  let lastIndex = null;
+  let isInteresectFirstEdge = false;
   for (let i = 0; i < polygonPoints.length - 1; i++) {
     const p1 = polygonPoints[i];
     const p2 = polygonPoints[i + 1];
     if (isIntersecting(p1, p2, segmentPoints[0], segmentPoints[1])) {
+      if (i === 0) {
+        isInteresectFirstEdge = true;
+      }
+      if (lastIndex !== null && (i - 1 === lastIndex)) {
+        if (isPointToTheLeftOfLine(p2, segmentPoints[0], segmentPoints[1])
+            !== isPointToTheLeftOfLine(polygonPoints[lastIndex], segmentPoints[0], segmentPoints[1])) {
+          res--;
+        }
+      }
+      if (i + 1 === polygonPoints.length && isInteresectFirstEdge) {
+        if (isPointToTheLeftOfLine(p1, segmentPoints[0], segmentPoints[1])
+          !== isPointToTheLeftOfLine(polygonPoints[1], segmentPoints[0], segmentPoints[1])) {
+          res--;
+        }
+      }
+      lastIndex = i;
       res++;
     }
   }

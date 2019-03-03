@@ -1,4 +1,4 @@
-package by.bsu.lab2.constants;
+package by.bsu.lab2.constant;
 
 /**
  * Класс, содержащий константы сообщений ошибок

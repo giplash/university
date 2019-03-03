@@ -1,7 +1,8 @@
-package by.bsu.lab2.action;
+package by.bsu.lab2.entity;
 
-import by.bsu.lab2.constants.ErrorMessages;
-import by.bsu.lab2.constants.MatrixConstants;
+import by.bsu.lab2.validator.MatrixValidator;
+import by.bsu.lab2.constant.ErrorMessages;
+import by.bsu.lab2.constant.MatrixConstant;
 import by.bsu.lab2.exceptions.MatrixIllegalIndexException;
 import by.bsu.lab2.exceptions.MatrixIllegalSizeException;
 import java.util.Random;
@@ -11,8 +12,6 @@ import java.util.Random;
  */
 public class Matrix {
 
-    private final int rowsCount;
-    private final int columnsCount;
     private int[][] matrix;
 
     /**
@@ -24,8 +23,6 @@ public class Matrix {
         if (!MatrixValidator.isCorrectSize(rowsCount, columnsCount)) {
             throw new MatrixIllegalSizeException(ErrorMessages.INCORRECT_SIZE);
         }
-        this.rowsCount = rowsCount;
-        this.columnsCount = columnsCount;
         this.matrix = new int[rowsCount][columnsCount];
     }
 
@@ -41,7 +38,7 @@ public class Matrix {
      * Конструктор, задающий размеры матрицы по параметрам по умолчанию
      */
     public Matrix() throws MatrixIllegalSizeException {
-        this(MatrixConstants.DEFAULT_ROWS_COUNT, MatrixConstants.DEFAULT_COLUMNS_COUNT);
+        this(MatrixConstant.DEFAULT_ROWS_COUNT, MatrixConstant.DEFAULT_COLUMNS_COUNT);
     }
 
     /**
@@ -59,7 +56,7 @@ public class Matrix {
      * @return количество строк матрицы
      */
     public int getRowsCount() {
-        return rowsCount;
+        return matrix.length;
     }
 
     /**
@@ -67,7 +64,7 @@ public class Matrix {
      * @return количество столбцов матрицы
      */
     public int getColumnsCount() {
-        return columnsCount;
+        return matrix[0].length;
     }
 
     /**
@@ -77,7 +74,7 @@ public class Matrix {
      * @return искомый элемент матрицы
      */
     public int getElement(int rowIndex, int columnIndex) throws MatrixIllegalIndexException {
-        if (!MatrixValidator.isCorrectIndexes(rowIndex, columnIndex, this.rowsCount, this.columnsCount)) {
+        if (!MatrixValidator.isCorrectIndexes(rowIndex, columnIndex, getRowsCount(), getColumnsCount())) {
             throw new MatrixIllegalIndexException(ErrorMessages.INCORRECT_INDEX);
         }
         return this.matrix[rowIndex][columnIndex];
@@ -89,7 +86,7 @@ public class Matrix {
      * @return строку в виде массива int[]
      */
     public int[] getRow(int rowIndex) throws MatrixIllegalIndexException {
-        if (!MatrixValidator.isCorrectIndex(rowIndex, this.rowsCount)) {
+        if (!MatrixValidator.isCorrectIndex(rowIndex, getRowsCount())) {
             throw new MatrixIllegalIndexException(ErrorMessages.INCORRECT_INDEX);
         }
         return this.matrix[rowIndex];
@@ -101,11 +98,11 @@ public class Matrix {
      * @return стобец в виде массива int[]
      */
     public int[] getColumn(int columnIndex) throws MatrixIllegalIndexException {
-        if (!MatrixValidator.isCorrectIndex(columnIndex, this.columnsCount)) {
+        if (!MatrixValidator.isCorrectIndex(columnIndex, getColumnsCount())) {
             throw new MatrixIllegalIndexException(ErrorMessages.INCORRECT_INDEX);
         }
-        int[] column = new int[this.rowsCount];
-        for (int i = 0; i < this.rowsCount; i++) {
+        int[] column = new int[getRowsCount()];
+        for (int i = 0; i < getRowsCount(); i++) {
             column[i] = this.matrix[i][columnIndex];
         }
         return column;
@@ -116,8 +113,8 @@ public class Matrix {
      * @param element число, которым будет заполнена матрица
      */
     public void fill(int element) {
-        for (int i = 0; i < this.rowsCount; i++) {
-            for (int j = 0; j < this.columnsCount; j++) {
+        for (int i = 0; i < getRowsCount(); i++) {
+            for (int j = 0; j < getColumnsCount(); j++) {
                 matrix[i][j] = element;
             }
         }
@@ -129,8 +126,8 @@ public class Matrix {
      */
     public void fillRandom(int upperBound) {
         Random rand = new Random();
-        for (int i = 0; i < this.rowsCount; i++) {
-            for (int j = 0; j < this.columnsCount; j++) {
+        for (int i = 0; i < getRowsCount(); i++) {
+            for (int j = 0; j < getColumnsCount(); j++) {
                 matrix[i][j] = rand.nextInt(upperBound);
             }
         }
@@ -142,8 +139,8 @@ public class Matrix {
      * @return true если элемент найден, иначе - false
      */
     public boolean includes(int element) {
-        for (int i = 0; i < this.rowsCount; i++) {
-            for (int j = 0; j < this.columnsCount; j++) {
+        for (int i = 0; i < getRowsCount(); i++) {
+            for (int j = 0; j < getColumnsCount(); j++) {
                 if (matrix[i][j] == element) {
                     return true;
                 }
@@ -158,8 +155,8 @@ public class Matrix {
      */
     public String toString() {
         String res = "";
-        for (int i = 0; i < this.rowsCount; i++) {
-            for (int j = 0; j < this.columnsCount; j++) {
+        for (int i = 0; i < getRowsCount(); i++) {
+            for (int j = 0; j < getColumnsCount(); j++) {
                 res += this.matrix[i][j] + " ";
             }
             res += '\n';
