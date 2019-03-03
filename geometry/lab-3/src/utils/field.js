@@ -22,10 +22,7 @@ export const getPen = () => {
     new PIXI.Point(80, 550),
     new PIXI.Point(550, 500),
     new PIXI.Point(545, 450),
-    new PIXI.Point(500, 300),
-    new PIXI.Point(455, 200),
-    new PIXI.Point(360, 50),
-    new PIXI.Point(250, 50),
+    new PIXI.Point(250, 50)
   ]);
   polygon.close();
   return polygon;
@@ -33,7 +30,7 @@ export const getPen = () => {
 
 export const PEN = getPen();
 export const PIT = getPit();
-export const SPEED = 5;
+export const SPEED = 3;
 
 export const generatePointInsidePen = () => {
   const point = getRandomPoint();
