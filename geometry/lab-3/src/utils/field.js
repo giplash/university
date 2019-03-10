@@ -1,6 +1,11 @@
 import * as PIXI from "pixi.js";
 import { getRandomPoint } from "./primitives";
-import { getBoundsIndexesOfSector, getPolygonPoints, isPointInsideConvexPolygon, isPointInsidePolygon } from "./polygons";
+import {
+  getBoundsIndexesOfSector,
+  getPolygonPoints,
+  isPointInsideConvexPolygon,
+  isPointInsidePolygon
+} from "./polygons";
 
 export const getPit = () => {
   const polygon = new PIXI.Polygon([
@@ -64,7 +69,7 @@ export const updateSheeps = sheeps => {
         const boundVector = [ penPoints[p2].x - penPoints[p1].x, penPoints[p2].y - penPoints[p1].y ];
         const factor = 2 * (vector[0] * boundVector[0] + vector[1] * boundVector[1])
           / (boundVector[0] * boundVector[0] + boundVector[1] * boundVector[1]);
-        newVector = [ boundVector[0] * factor - vector[0], boundVector[1] * factor - vector[1]];
+        newVector = [ boundVector[0] * factor - vector[0], boundVector[1] * factor - vector[1] ];
         newPoint.x = point.x + newVector[0];
         newPoint.y = point.y + newVector[1];
       }

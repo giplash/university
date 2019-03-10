@@ -1,4 +1,4 @@
-import {drawPoint} from "./draw";
+import { drawPoint } from "./draw";
 import {
   getSegmentToRightBorderFromPoint,
   isIntersecting,

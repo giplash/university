@@ -1,4 +1,4 @@
-import {graphics, COLOR, WIDTH, HEIGHT, LINE_THICKNESS} from "../app";
+import { graphics, COLOR, WIDTH, HEIGHT, LINE_THICKNESS } from "../app";
 import { getPen, getPit } from "./field";
 import * as PIXI from "pixi.js";
 
@@ -28,14 +28,6 @@ export const drawSegment = (p1, p2) => {
 };
 
 export const clear = () => {
-  // const polygon = new PIXI.Polygon([
-  //   new PIXI.Point(0, 0),
-  //   new PIXI.Point(0, HEIGHT),
-  //   new PIXI.Point(WIDTH, HEIGHT),
-  //   new PIXI.Point(WIDTH, 0)
-  // ]);
-  // polygon.close();
-  // drawPolygon(polygon)
   graphics.clear();
   graphics.lineStyle(LINE_THICKNESS, COLOR);
 };
