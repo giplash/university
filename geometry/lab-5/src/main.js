@@ -26,7 +26,7 @@ const mainPolygon = new PIXI.Polygon([
 ]);
 
 
-let points = getRandomPointsInsideConvexPolygon(POINTS_AMOUNT, mainPolygon).map(point => {
+const points = getRandomPointsInsideConvexPolygon(POINTS_AMOUNT, mainPolygon).map(point => {
   const alfa = Math.random() * Math.PI * 2;
   point.vector = [ SPEED * Math.cos(alfa), SPEED * Math.sin(alfa) ];
   return point;
