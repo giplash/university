@@ -1,5 +1,6 @@
 package by.bsu.lab2;
 
+import by.bsu.lab2.action.MatrixFiller;
 import by.bsu.lab2.entity.Matrix;
 import by.bsu.lab2.action.MatrixShifter;
 import by.bsu.lab2.exceptions.MatrixIllegalIndexException;
@@ -16,7 +17,7 @@ public class Main {
         // Создаем матрицу 3х3, проверяем корректность работы
         try {
             Matrix matrix = new Matrix(3, 3);
-            matrix.fillRandom(5);
+            MatrixFiller.fillRandom(matrix, 5);
             System.out.println("Matrix before shifting:");
             System.out.println(matrix.toString());
 
@@ -28,7 +29,7 @@ public class Main {
             System.out.println("Shift matrix to the top for 2 steps:");
             System.out.println(matrix.toString());
         } catch (Exception exception) {
-
+            System.out.println('h');
         }
 
         // Проверяем ошибку на неправильный размер матрицы
@@ -42,7 +43,7 @@ public class Main {
         // Проверяем ошибку на получение неправильного элемента матрицы
         try {
             Matrix matrix = new Matrix(3, 3);
-            matrix.fillRandom(10);
+            MatrixFiller.fillRandom(matrix, 10);
             matrix.getElement(-1, 0);
         } catch (MatrixIllegalIndexException exception) {
             System.out.println("Exception is caught:");

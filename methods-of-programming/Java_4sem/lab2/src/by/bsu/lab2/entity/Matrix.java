@@ -47,7 +47,10 @@ public class Matrix {
      * @param rowIndex индекс строки
      * @param columnIndex индекс столбца
      */
-    public void setElement(int value, int rowIndex, int columnIndex) {
+    public void setElement(int value, int rowIndex, int columnIndex) throws MatrixIllegalIndexException {
+        if (!MatrixValidator.isCorrectIndexes(rowIndex, columnIndex, getRowsCount(), getColumnsCount())) {
+            throw new MatrixIllegalIndexException(ErrorMessages.INCORRECT_INDEX);
+        }
         this.matrix[rowIndex][columnIndex] = value;
     }
 
@@ -106,31 +109,6 @@ public class Matrix {
             column[i] = this.matrix[i][columnIndex];
         }
         return column;
-    }
-
-    /**
-     * Метод, заполняющий матрицу определенным числом
-     * @param element число, которым будет заполнена матрица
-     */
-    public void fill(int element) {
-        for (int i = 0; i < getRowsCount(); i++) {
-            for (int j = 0; j < getColumnsCount(); j++) {
-                matrix[i][j] = element;
-            }
-        }
-    }
-
-    /**
-     * Метод, заполняющий матрицу произвольными числами
-     * @param upperBound верхняя граница произвольного числа
-     */
-    public void fillRandom(int upperBound) {
-        Random rand = new Random();
-        for (int i = 0; i < getRowsCount(); i++) {
-            for (int j = 0; j < getColumnsCount(); j++) {
-                matrix[i][j] = rand.nextInt(upperBound);
-            }
-        }
     }
 
     /**
