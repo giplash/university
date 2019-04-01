@@ -13,7 +13,7 @@ import * as PIXI from 'pixi.js';
 
 const SPEED = 2;
 const MAX_LENGTH = 900;
-const POINTS_AMOUNT = 6;
+const POINTS_AMOUNT = 10;
 
 const mainPolygon = new PIXI.Polygon([
   new PIXI.Point(300, 50),
@@ -58,10 +58,10 @@ const intervalFun = () => {
   drawPolygon(hullPolygon);
   const value = perimeter(hullPolygon);
   $('.value').text(value);
-  updatePoints(value);
+  updatePoints(value, hull);
 };
 
-const updatePoints = (value) => {
+const updatePoints = (value, hull) => {
   points.forEach(point => {
     const { vector } = point;
     let newVector = vector;
@@ -76,7 +76,7 @@ const updatePoints = (value) => {
         / (boundVector[0] * boundVector[0] + boundVector[1] * boundVector[1]);
       newVector = [ boundVector[0] * factor - vector[0], boundVector[1] * factor - vector[1] ];
     }
-    if (value >= MAX_LENGTH) {
+    if (value >= MAX_LENGTH && hull.includes(point)) {
       point.alfa = point.alfa + Math.PI;
       newVector = [ SPEED * Math.cos(point.alfa), SPEED * Math.sin(point.alfa) ];
     }
