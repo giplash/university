@@ -1,4 +1,4 @@
-import { diameter2 } from "./utils/diameter";
+import { slowDiameter, diameter } from "./utils/diameter";
 import $ from 'jquery';
 import {
   getBoundsIndexesOfSector,
@@ -9,6 +9,7 @@ import { drawPoints, drawPolygon, drawSegment } from "./utils/draw";
 import { getRandomPointsInsideConvexPolygon } from "./utils/primitives";
 import { convexHull } from './utils/convexHull';
 import { clear } from './utils/draw';
+import { length } from './utils/primitives';
 import * as PIXI from 'pixi.js';
 
 const SPEED = 2;
@@ -44,13 +45,10 @@ const intervalFun = () => {
   drawPoints(points);
   const hull = convexHull(points);
   drawPolygon(new PIXI.Polygon(hull));
-  const { value, points: resPoints } = diameter2(hull, true);
+  const resPoints = diameter(hull, true);
+  const value = length(resPoints[0], resPoints[1]);
   $('.value').text(value);
   drawSegment(resPoints[0], resPoints[1], 0xFF0000);
-  if (value > MAX_LENGTH) {
-    clearInterval(interval);
-    return;
-  }
   updatePoints();
 };
 

@@ -33,7 +33,6 @@ export const convexHull = points => {
         return acc;
       }
     });
-    // points = points.filter(point => point !== rightPoint);
     points.splice(index, 1);
     convexHull.push(rightPoint);
     lastPoint = rightPoint;
