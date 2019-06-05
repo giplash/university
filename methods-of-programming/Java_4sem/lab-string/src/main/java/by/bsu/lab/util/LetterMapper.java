@@ -4,11 +4,14 @@ package by.bsu.lab.util;
 public class LetterMapper {
 
     public String replace(String string) {
+        if (string.equals("")) {
+            return string;
+        }
         char[] array = string.toCharArray();
         String result = "";
 
         for (int i = 0; i < array.length; i++) {
-            result += (mapLetterToAplhabetic(array[i]));
+            result += (mapLetterToAplhabetic(array[i])) + ' ';
         }
 
         return result;

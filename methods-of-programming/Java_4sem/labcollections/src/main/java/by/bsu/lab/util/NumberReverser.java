@@ -6,8 +6,8 @@ public class NumberReverser {
 
     public int reverse(int number) {
         Stack<Character> stack = new Stack<Character>();
-        char[] charArray = String.valueOf(number).toCharArray();
-        String res = "";
+        char[] charArray = String.valueOf(Math.abs(number)).toCharArray();
+        String res = number < 0 ? "-" : "";
         for (int i = 0; i < charArray.length; i++) {
             stack.push(charArray[i]);
         }
